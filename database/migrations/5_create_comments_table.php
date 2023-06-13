@@ -15,14 +15,12 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id')->nullable(); //INCERTAIN
             $table->unsignedBigInteger('user_id');
             $table->string('content', 1000)->nullable();
             $table->string('title', 40)->nullable();
-            $table->float('note', 2,1); //Nombre total de chiffre, nombre de décimales
+            $table->float('note', 2, 1); //Nombre total de chiffre, nombre de décimales
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('product_id')->references('id')->on('products'); //INCERTAIN
 
             $table->timestamps();
         });

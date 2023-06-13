@@ -9,13 +9,23 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'gamme_id',
+        'name',
+        'desc',
+        'full_desc',
+        'image',
+        'price',
+        'dispo',
+    ];
+
     public function gamme()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Gamme::class);
     }
-    
-    public function comment()
+
+    public function satisfactions()
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsToMany(User::class, 'satisfactions');
     }
 }
