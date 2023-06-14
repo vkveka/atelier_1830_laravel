@@ -15,7 +15,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
 </head>
 
 <body>
@@ -60,13 +60,14 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('users.edit', $user = Auth::user()) }}">
                                         {{ __('Mon compte') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        {{ __('Deconnexion') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -81,6 +82,21 @@
         </nav>
 
         <main class="py-4">
+            <div class="container-fluid text-center">
+                @if (session()->has('message'))
+                    <p class="alert alert-success">{{ session()->get('message') }}</p>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
             @yield('content')
         </main>
     </div>

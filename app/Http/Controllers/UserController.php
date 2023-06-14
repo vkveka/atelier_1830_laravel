@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 
 
 class UserController extends Controller
@@ -27,7 +30,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user/edit', ['user' => $user]);   
+        return view('user/edit', ['user' => $user]);
     }
 
     /**
@@ -41,8 +44,15 @@ class UserController extends Controller
     {
         //
         $request->validate([
-            'fistname' => 'required|max:40',
-            'lastname' => 'nullable|string'
+            'firstname' => 'required|max:40',
+            'lastname' => 'nullable|string',
+            'email' => 'string',
+            'password' => [
+                'nullable', 'confirmed',
+                Password::min(8)
+                    ->mixedCase()
+            ],
+
         ]);
 
         // //On modifie les infos de l'utilisateur
@@ -50,9 +60,23 @@ class UserController extends Controller
         // $user->lastname = $request->input('lastname');
         // $user->save();
 
-        $user->update($request->all());
+        $user->update([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+        ]);
 
-        return back()->with('message', 'Le compte a bien été modifié');
+        if ($request->password) {
+            if ($request->oldPassword && Hash::check($request->oldPassword, User::find($user->id)->password)) {
+                $user->update([
+                    'password' => Hash::make($request->password)
+                ]);
+            } else {
+                return redirect()->back()->withErrors(['erreur' => 'L\'ancien mot de passe est incorrect']);
+            }
+        }
+
+        return redirect()->route('users.edit', $user)->with('message', 'Le compte a bien été modifié');
     }
 
     /**
@@ -61,8 +85,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
         //
+        if (Auth::user()->id == $user->id) {
+            $user->delete();
+            return redirect()->route('register')->with('message', 'Le compte a bien été supprimé');
+        } else {
+            return redirect()->back()->withErrors(['erreur' => 'suppression du compte impossible']);
+        }
     }
 }
