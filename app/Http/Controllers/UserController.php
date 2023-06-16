@@ -90,7 +90,7 @@ class UserController extends Controller
         //
         if (Auth::user()->id == $user->id) {
             $user->delete();
-            return redirect()->route('register')->with('message', 'Le compte a bien été supprimé');
+            return redirect()->route('home')->with('message', 'Le compte a bien été supprimé');
         } else {
             return redirect()->back()->withErrors(['erreur' => 'suppression du compte impossible']);
         }

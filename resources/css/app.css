@@ -1,3 +1,576 @@
+::selection {
+    color: beige;
+    background-color: #b85656;
+}
+
+.grayscale {
+    position: relative;
+}
+
+.grayscale::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../public/images/background.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: grayscale(0.8);
+}
+
+body {
+    background-image: url(../../public/images/background.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+
+
+/* *********************************************************CONNECTION********************************************** */
+.card_connection {
+    margin: 20vh 0;
+}
+
+.form-control:focus {
+    border-color: #a44a4a82;
+    box-shadow: 0 0 2px 4px rgb(228, 150, 150)
+}
+
+.btn-terracotta {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #a44a4a;
+    --bs-btn-border-color: #fff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #924444;
+    --bs-btn-hover-border-color: #a44a4a;
+    --bs-btn-focus-shadow-rgb: 66, 70, 73;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #743535;
+    --bs-btn-active-border-color: #fff;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #212529;
+    --bs-btn-disabled-border-color: #212529;
+}
+
+.card_connection a {
+    color: #a44a4a;
+    --bs-btn-active-color: #a44a4a;
+}
+
+.card_connection a:hover {
+    color: rgb(131, 61, 61);
+}
+
+.card_connection .form-check-input:checked {
+    background-color: #a44a4a;
+    border-color: #a44a4a;
+}
+
+/* *********************************************************FIN CONNECTION********************************************** */
+
+
+/* ****************************** NAVBAR **************************** */
+nav {
+    background-color: #ffffffe0;
+    font-family: 'Handlee', cursive;
+    font-size: 17px;
+}
+
+nav .dropdown-menu {
+    --bs-dropdown-link-active-bg: #a44a4a;
+}
+
+.actived {
+    border-bottom: #a44a4a solid 4px;
+    margin-bottom: 0;
+}
+
+.nav-link {
+    margin-left: 10px;
+}
+
+
+.dropdown-item,
+.nav-link:not(.actived) {
+    position: relative;
+    /* Ajoutez cette propriété pour positionner le pseudo-élément */
+    transition: background-position 0.1s;
+    /* Transition pour la propriété background-position */
+}
+
+.dropdown-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background-color: #a44a4a;
+    transition: height 0.2s;
+    /* Transition pour la propriété width */
+}
+
+.nav-link:not(.dropdown-toggle)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: #a44a4a;
+    transition: width 0.2s;
+    /* Transition pour la propriété width */
+}
+
+.dropdown-item:hover::after {
+    height: 100%;
+    /* La largeur passe de 0 à 100% lors du survol */
+    background-position: right;
+    /* La position de l'arrière-plan passe de gauche à droite lors du survol */
+}
+
+.nav-link:not(.actived):not(.dropdown-toggle):hover::after {
+    width: 100%;
+    /* La largeur passe de 0 à 100% lors du survol */
+    background-position: right;
+    /* La position de l'arrière-plan passe de gauche à droite lors du survol */
+}
+
+/* ****************************** FIN NAVBAR **************************** */
+
+
+
+
+/* ****************************** FOOTER **************************** */
+footer {
+    background-color: #a44a4a;
+    padding-top: 50px;
+    color: beige;
+    position: relative;
+}
+
+footer a {
+    color: beige;
+}
+
+footer h2 {
+    font-weight: 600;
+}
+
+footer iframe {
+    filter: sepia(0.3);
+}
+
+footer .img_logo {
+    width: 200px;
+}
+
+footer img {
+    transition: 0.2s;
+    width: 50px;
+}
+
+footer .icon_footer img:hover {
+    transform: scale(1.1);
+}
+
+#copyright {
+    background-color: #652f2f;
+    color: beige;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+#copyright .nav-link::after {
+    bottom: -5px;
+}
+
+#copyright .nav-link::after {
+    background-color: beige !important;
+}
+
+/* ****************************** FIN FOOTER **************************** */
+
+
+
+
+/* *********************************************************************************************************** */
+/* *********************************************** PAGE INDEX ************************************************ */
+/* *********************************************************************************************************** */
+
+/* ****************************** HEADER **************************** */
+header {
+    padding: 10vh 0;
+    width: 100vw;
+    /* padding-bottom: 5vh; */
+    background: linear-gradient(to bottom, transparent, #ebddac6f);
+}
+
+header .text_header h4 {
+    color: #a44a4a;
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-variant: small-caps;
+    padding-bottom: 10vh;
+    position: relative;
+}
+
+header h1 {
+    font-size: 15vw;
+    font-family: 'Passions Conflict', cursive;
+    color: #a44a4a;
+    text-shadow: #ebddac 1px 4px;
+    line-height: 0.8;
+}
+
 .card-header {
     background-color: #a44a4a;
+    color: white;
+    font-weight: bold;
+}
+
+/* ****************************** FIN HEADER **************************** */
+
+
+
+/******************************* CSS CAROUSEL *******************************/
+/* https://codepen.io/chingy/pen/yLLZRbj */
+:root {
+    --marquee-width: 100vw;
+    --marquee-height: 23vh;
+    /* --marquee-elements: 12; */
+    /* defined with JavaScript */
+    --marquee-elements-displayed: 3;
+    --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+    --marquee-animation-duration: calc(var(--marquee-elements) * 5s);
+}
+
+.marquee {
+    box-shadow: 0 0 7px white;
+    width: var(--marquee-width);
+    height: var(--marquee-height);
+    background: linear-gradient(to right, #d04e4e2b, #ebddacd3, #d04e4e2b);
+    color: #eee;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee:before,
+.marquee:after {
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 100%;
+    content: "";
+    z-index: 1;
+}
+
+.marquee-content {
+    height: 100%;
+    display: flex;
+    animation: scrolling var(--marquee-animation-duration) linear infinite;
+}
+
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrolling {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
+    }
+}
+
+.marquee-content li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    flex-shrink: 0;
+    width: var(--marquee-element-width);
+    max-height: 100%;
+    /* font-size: calc(var(--marquee-height)*3/4); */
+    /* 5rem; */
+    white-space: nowrap;
+}
+
+.marquee-content li img {
+    width: 100%;
+    /* height: 100%; */
+    border: 2px solid #eee;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 12px;
+    }
+
+    :root {
+        --marquee-width: 100vw;
+        --marquee-height: 16vh;
+        --marquee-elements-displayed: 3;
+    }
+
+    .marquee:before,
+    .marquee:after {
+        width: 5rem;
+    }
+}
+
+/******************************* FIN CSS CAROUSEL *******************************/
+
+
+
+
+
+
+/* **************** INFO ARTISAN ************* */
+
+.bloc_l1 h1 {
+    padding-top: 100px;
+    font-size: 120px;
+    color: #ebddac;
+    text-shadow: #a44a4a 1px 2px;
+}
+
+.img_header_tab {
+    display: none;
+}
+
+.img_mac_header_tab {
+    display: none;
+}
+
+.article_header,
+.bloc_info_loc,
+.bloc_info {
+    /*bloc info dans la partie A PROPOS DE VOTRE ARTISANS */
+    background-color: #ebddacb9;
+    height: 520px auto;
+    /* margin: 3vw; */
+    padding: 2vw;
+    border-radius: 10px;
+    font-family: 'Handlee', cursive;
+    line-height: 30px;
+    box-shadow: 2px 2px 10px 2px rgb(111, 111, 111);
+}
+
+h3 {
+    color: #a44a4a;
+    font-family: 'Passions Conflict', cursive;
+    font-size: 50px !important;
+    margin-top: 1vh;
+    margin-bottom: 4vh;
+    line-height: 35px;
+    font-weight: 650;
+}
+
+p {
+    font-size: 20px;
+    border-top: dotted 2px #a44a4a;
+}
+
+.article_header img {
+    height: 130px;
+    box-shadow: 2px 2px 10px 2px rgb(102, 102, 102);
+    border-radius: 5vw;
+}
+
+/* IMAGES HEADER */
+
+.article_header a {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#img1 {
+    margin-top: 30px;
+}
+
+#img3 {
+    margin-top: 0px;
+}
+
+.article_header img:hover {
+    transform: scale(1.2);
+}
+
+.map_tab {
+    display: none;
+}
+
+#info_artisan {
+    background: linear-gradient(to bottom right, #ebddaca4, #da676729);
+    height: auto;
+}
+
+.bloc {
+    display: flex;
+    justify-content: center;
+}
+
+#info_artisan h2 {
+    color: #a44a4a;
+    font-family: 'Passions Conflict', cursive;
+    font-size: 120px;
+    padding: 5vw 2vw;
+    /* display: flex;
+    justify-content: center; */
+    text-shadow: 1px 1px #793737;
+    border-bottom: dotted 2px #a44a4a;
+    line-height: 0%;
+    text-align: center;
+}
+
+.bloc_info {
+    background-color: #ebddacca;
+    border: solid 2px #a44a4a;
+    margin: 6vw 2vw 5vw 2vw;
+    height: 470px;
+}
+
+.bloc_info img {
+    width: 200px;
+    margin-top: 2vw;
+    border-radius: 15px;
+}
+
+.bloc_info p {
+    padding-top: 1vw;
+}
+
+.bloc_info_loc {
+    height: auto;
+    border: solid 2px #a44a4a;
+}
+
+
+img {
+    transition: 0.5s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* **************** FIN INFO ARTISAN ************* */
+
+
+
+@media screen and (max-width:991px) {
+
+    .test {
+        font-size: 120px;
+        font-family: 'Passions Conflict', cursive;
+        color: #ebddac;
+        font-weight: 600;
+        line-height: 100px;
+    }
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link {
+        color: #ebddac;
+    }
+
+    nav {
+        background-color: #a44a4aed;
+    }
+
+
+    .navbar-brand {
+        display: none;
+    }
+
+    header h1 {
+        display: none;
+    }
+
+    img:hover {
+        transform: scale(1);
+    }
+
+    .article_header {
+        height: 50vh;
+    }
+
+    .img_mac_header_tab {
+        display: block;
+        padding-top: 6.5vh;
+    }
+
+    .img_mac_header_tab img {
+        height: 440px;
+        border-radius: 10px;
+    }
+
+    /* .img_mac_header_tab img {
+        margin-top: 6vh;
+        margin: 2vw;
+        margin-top: 5vh;
+    } */
+
+
+
+
+
+    .article_header img {
+        display: none;
+    }
+
+    #info_artisan h2 {
+        padding-top: 10vh;
+        line-height: 100px;
+    }
+
+
+    .bloc_info {
+        height: 40vh;
+    }
+
+    /* .map_desktop {
+        display: none;
+    } */
+
+    /* .map_tab {
+        display: block;
+    } */
+
+    .bloc_info iframe {
+        display: none;
+    }
+
+
+}
+
+
+
+
+@media screen and (max-width:768px) {
+    .article_header {
+        height: auto;
+    }
+
+    .test {
+        font-size: 100px;
+    }
+
+
+    .bloc_info {
+        height: auto;
+    }
+
 }

@@ -1,0 +1,60 @@
+/* *********************************************************************************************************** */
+/* *********************************************** PAGE GAMMES ************************************************ */
+/* *********************************************************************************************************** */
+
+#gammes img {
+    all: unset;
+}
+
+#gammes {
+    padding: 50px 0 100px 0;
+}
+
+#gammes h1 {
+    font-size: 50px;
+    padding-bottom: 100px;
+    margin-left: 150px;
+    font-family: 'Handlee', cursive;
+    color: #fff;
+    text-shadow: 0 0 2px black;
+    font-weight: 600;
+}
+
+#gammes .survol a {
+    text-decoration: none;
+}
+
+#gammes h2 {
+    text-transform: uppercase;
+    transition: 0.4s;
+    letter-spacing: 5px;
+    font-size: 35px;
+    position: relative;
+    bottom: 45%;
+    font-weight: 600;
+    color: rgb(236, 236, 236);
+    text-shadow: 0 0 0.75px black;
+}
+
+#gammes .survol img {
+    position: relative;
+    transition: 0.2s;
+    width: 100%;
+}
+
+#gammes .survol:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.7) blur(1px);
+}
+
+#gammes .survol:hover h2 {
+    color: white;
+}
+
+#gammes .card p {
+    font-size: 17px;
+}
+
+.show_ligne_gamme {
+    display: none;
+}

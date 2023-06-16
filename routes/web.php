@@ -14,11 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::resource('/users', App\Http\Controllers\UserController::class)->except('index', 'create', 'store');
+Route::resource('/gammes', App\Http\Controllers\GammeController::class);
+
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin')->middleware('admin');
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact'])->name('contact');
+Route::get('/pasapas', [App\Http\Controllers\ContactController::class, 'pasapas'])->name('pasapas');
+Route::get('/info_product', [App\Http\Controllers\ContactController::class, 'info_product'])->name('info_product');

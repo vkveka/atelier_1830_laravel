@@ -1,0 +1,40 @@
+
+#back_office span {
+    color: #a44a4a;
+    font-weight: 900;
+}
+#back_office h1 {
+    font-family: 'Handlee', cursive;
+    color: white;
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+#back_office .accordion {
+    padding: 100px 0 !important;
+}
+
+#back_office .accordion-body {
+    text-transform: capitalize;
+}
+
+#back_office .accordion-button:focus {
+    box-shadow: 0 0 1px #b85656;
+}
+
+#back_office .accordion-button:not(.collapsed) {
+    background-color: #b85656;
+    box-shadow: 0 0 3px #b85656;
+    color: white;
+}
+
+#back_office td img:hover {
+    transform: scale(1.1);
+}
+#back_office td img {
+    all: unset;
+    transition: 0.1s;
+    width: 30px;
+    height: auto;
+    color: yellow;
+}

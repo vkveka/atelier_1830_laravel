@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ProductSeeder::class,
             CommentSeeder::class,
-            SatisfactionSeeder::class
+            SatisfactionSeeder::class,
+            CommandeSeeder::class,
+            CommandeArticleSeeder::class,
         ]);
     }
 }

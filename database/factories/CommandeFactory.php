@@ -2,14 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Product;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Satisfaction>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Commande>
  */
-class SatisfactionFactory extends Factory
+class CommandeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,10 +18,9 @@ class SatisfactionFactory extends Factory
     public function definition()
     {
         return [
-            //
-            'product_id' => rand(1, Product::count()),
             'user_id' => rand(1, User::count()),
-            'note' => $this->faker->randomElement(['bad', 'good', 'verygood'])
+            'numero' => rand(1000, 9999),
+            'price' => $this->faker->randomFloat(2, 10, 500),
         ];
     }
 }

@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('gammes', function (Blueprint $table) {
+        Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 40);
-            $table->string('image', 50);
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('numero');
+            $table->float('price', 5,2);
+
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gammes');
+        Schema::dropIfExists('commandes');
     }
 };

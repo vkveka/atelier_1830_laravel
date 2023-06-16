@@ -16,15 +16,18 @@ class GammeSeeder extends Seeder
     public function run()
     {
         Gamme::create([
-            'name' => 'coussin'
+            'name' => 'coussin',
+            'image' => 'gamme_coussin.jpg',
         ]);
 
         Gamme::create([
-            'name' => 'rideau'
+            'name' => 'rideau',
+            'image' => 'fermeture_lit.jpeg',
         ]);
 
         Gamme::create([
-            'name' => 'autre'
+            'name' => 'autre',
+            'image' => 'background.jpeg',
         ]);
     }
 }

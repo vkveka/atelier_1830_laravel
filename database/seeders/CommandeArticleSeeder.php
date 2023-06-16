@@ -2,14 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use App\Models\Product;
-use Illuminate\Support\Arr;
+use App\Models\Commande;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class SatisfactionSeeder extends Seeder
+class CommandeArticleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,10 +18,10 @@ class SatisfactionSeeder extends Seeder
     public function run()
     {
         for ($i = 0; $i < 10; $i++) {
-            DB::table('satisfactions')->insert([
-                'user_id' => rand(1, User::count()),
+            DB::table('commande_articles')->insert([
+                'commande_id' => rand(1, Commande::count()),
                 'product_id' => rand(1, Product::count()),
-                'note' => Arr::random(['bad', 'good', 'verygood']),
+                'quantity' => rand(1,5),
             ]);
         }
     }

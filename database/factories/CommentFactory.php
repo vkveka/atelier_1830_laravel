@@ -20,7 +20,6 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'product_id' => rand(1, Product::count()),
             'content' => $this->faker->sentence(),
             'user_id' => rand(1, User::count()),
             'title' => $this->faker->words(3, true),

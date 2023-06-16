@@ -55,14 +55,23 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+    public function commandes()
+    {
+        return $this->hasMany(Commande::class);
+    }
 
     public function satisfactions()
     {
         return $this->belongsToMany(Product::class, 'satisfactions');
     }
 
+    public function commande_article()
+    {
+        return $this->belongsToMany(Commande::class, 'commande_articles');
+    }
+
     public function isAdmin()
     {
-        return $this->role_id == 2;
+        return $this->role_id == 1;
     }
 }

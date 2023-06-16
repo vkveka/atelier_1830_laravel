@@ -11,10 +11,12 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
+    //oblige la connection pour accéder à toutes les fonctions de ce Controller
+    // public function __construct()
+    // {
+    //     $this->middleware('auth'); 
+    // }
 
     /**
      * Show the application dashboard.
