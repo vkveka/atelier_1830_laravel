@@ -76,12 +76,34 @@ body {
 
 /* *********************************************************FIN CONNECTION********************************************** */
 
+/* EDIT ACCOUNT */
+#edit_info .card_connection {
+    margin: 100px 0;
+}
+
+.link_delete_account {
+    margin-top: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.show_modif_password {
+    cursor: pointer;
+}
+
+
+/* FIN EDIT ACCOUNT */
+
 
 /* ****************************** NAVBAR **************************** */
 nav {
     background-color: #ffffffe0;
     font-family: 'Handlee', cursive;
     font-size: 17px;
+}
+
+nav img {
+    width: 200px;
 }
 
 nav .dropdown-menu {

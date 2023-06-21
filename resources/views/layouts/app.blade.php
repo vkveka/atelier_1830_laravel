@@ -28,7 +28,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
-                    <img src="{{ asset('images/logo_depanne.png') }}" alt="">
+                    <img src="{{ asset('images/lelogo/lelogo_nav.png') }}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -121,7 +121,7 @@
     <footer>
         <div class="row">
             <div class="col-lg-4 text-center my-auto">
-                <img src="{{ asset('images/logo_depanne.png') }}" class=" img_logo" alt="">
+                <img src="{{ asset('images/lelogo/lelogo_nav.png') }}" class=" img_logo" alt="">
                 <div class="col-8 mx-auto mt-4">
                     <h5>L'Atelier 1830 est à votre écoute pour vous concoter la meilleure des pièces qui pourra vous
                         satisfaire</h5>
