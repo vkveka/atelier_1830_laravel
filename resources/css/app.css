@@ -29,6 +29,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     overflow-x: hidden;
+    font-family: 'Handlee', cursive;
 }
 
 
@@ -103,7 +104,7 @@ nav {
 }
 
 nav img {
-    width: 200px;
+    width: 150px;
 }
 
 nav .dropdown-menu {
@@ -177,6 +178,7 @@ footer {
     padding-top: 50px;
     color: beige;
     position: relative;
+    font-size: 16px;
 }
 
 footer a {
@@ -188,7 +190,7 @@ footer h2 {
 }
 
 footer iframe {
-    filter: sepia(0.3);
+    filter: sepia(0.2);
 }
 
 footer .img_logo {
@@ -495,30 +497,18 @@ img:hover {
 
 @media screen and (max-width:991px) {
 
-    .test {
-        font-size: 120px;
-        font-family: 'Passions Conflict', cursive;
-        color: #ebddac;
-        font-weight: 600;
-        line-height: 100px;
-    }
-
     .navbar-custom .navbar-brand,
     .navbar-custom .nav-link {
         color: #ebddac;
     }
 
-    nav {
-        background-color: #a44a4aed;
-    }
-
-
-    .navbar-brand {
-        display: none;
+    .navbar-brand img {
+        width: 100px;
     }
 
     header h1 {
-        display: none;
+        /* display: none; */
+        font-size: 100px;
     }
 
     img:hover {
@@ -586,13 +576,32 @@ img:hover {
         height: auto;
     }
 
-    .test {
-        font-size: 100px;
-    }
-
-
     .bloc_info {
         height: auto;
+    }
+
+    .navbar-brand {
+        display: none;
+    }
+
+    nav .container {
+        margin-left: 0;
+    }
+    
+    .nav-link:not(.actived):not(.dropdown-toggle):hover::after {
+        width: 15%;
+        /* La largeur passe de 0 à 100% lors du survol */
+        background-position: right;
+        /* La position de l'arrière-plan passe de gauche à droite lors du survol */
+    }
+
+    .actived {
+        width: 15%;
+    }
+
+    .dropdown-menu {
+        width: 30%;
+        margin-left: 10%;
     }
 
 }

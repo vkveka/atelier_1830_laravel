@@ -35,24 +35,6 @@
                 </ul>
             </div>
 
-            {{-- 
-            <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./images/coussin_canapé_longueur.jpeg" class="d-block mx-auto" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./images/fermeture_lit.jpeg" class="d-block mx-auto" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./images/couture_coussin_cuir.jpeg" class="d-block mx-auto" alt="...">
-                    </div>
-                </div>
-            </div> --}}
-
-
-
-
             <div class="container bloc_l1">
                 <div class="row text-center">
                     <h1>Qui sommes-nous</h1>
@@ -143,12 +125,7 @@
                             <p>L'atelier se situe à Versailles.<br><strong>78</strong></p>
                         </div>
                     </div>
-                    <div class="col-lg-12 map_desktop">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d34350.43874697801!2d2.111029110741943!3d48.80243869256719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67db475f420bd%3A0x869e00ad0d844aba!2s78000%20Versailles!5e0!3m2!1sfr!2sfr!4v1665662199499!5m2!1sfr!2sfr"
-                            width="500" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+                   
                 </div>
             </div>
         </section>

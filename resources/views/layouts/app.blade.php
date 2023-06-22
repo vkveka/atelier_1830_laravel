@@ -10,6 +10,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -17,8 +18,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Passions+Conflict&display=swap"
         rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
     <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css', 'resources/css/gammes.css', 'resources/css/backoffice.css'])
 </head>
 
@@ -40,11 +42,11 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ">
                         <a href="{{ route('home') }}"
-                            class="nav-item nav-link {{ request()->is('home') ? 'actived' : '' }}">Accueil</a>
+                            class="nav-item nav-link {{ request()->is('home') || request()->is('/') ? 'actived' : '' }}">Accueil</a>
                         <a href="{{ route('pasapas') }}"
                             class="nav-item nav-link {{ request()->is('pasapas') ? 'actived' : '' }}">Pas à pas</a>
                         <a href="{{ route('gammes.index') }}"
-                            class="nav-item nav-link {{ request()->is('gammes*') ? 'actived' : '' }}">Gammes</a>
+                            class="nav-item nav-link {{ request()->is('gammes') ? 'actived' : '' }}">Gammes</a>
                         <a href="{{ route('contact') }}"
                             class="nav-item nav-link {{ request()->is('contact') ? 'actived' : '' }}">Contact</a>
                     </ul>
@@ -76,7 +78,7 @@
                                     <a class="dropdown-item" href="{{ route('users.edit', $user = Auth::user()) }}">
                                         {{ __('Mon compte') }}
                                     </a>
-                                    @if (Auth::user() && Auth::user()->isAdmin() )
+                                    @if (Auth::user() && Auth::user()->isAdmin())
                                         <a class="dropdown-item" href="{{ route('admin') }}">
                                             {{ __('Back-Office') }}
                                         </a>
@@ -128,9 +130,6 @@
                 </div>
             </div>
             <div class="col-lg-4 text-center my-auto">
-                {{-- <div class="col-10 mx-auto mb-5">
-                    <h2>Retrouvez l'Atelier 1830 sur ses réseaux sociaux</h2>
-                </div> --}}
                 <div class="icon_footer">
                     <a href="https://www.facebook.com/profile.php?id=100070320827389" target="_blank">
                         <img src="{{ asset('images/logos/facebook.png') }}" alt=""></a>
@@ -155,7 +154,7 @@
                     <div class="d-flex justify-content-around">
                         <a class="nav-link" href="{{ route('home') }}">Accueil</a>
                         <a class="nav-link">Mentions Légales</a>
-                        <a class="nav-link">Contact</a>
+                        <a class="nav-link" href="{{ route('contact')}}">Contact</a>
                     </div>
                 </div>
             </div>

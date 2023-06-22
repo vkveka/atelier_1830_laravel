@@ -28,13 +28,13 @@
                 <div class="row show_ligne_gamme" id="gamme_{{ $gamme->id }}">
                     @foreach ($gamme->products as $product)
                         <div class="col-lg-3 mb-5">
-                            <div class="card mx-auto" style="width: 18rem;">
+                            <div class="card mx-auto p-1" style="width: 18rem;">
                                 <img src="{{ asset("images/$product->image") }}" class="card-img-top"
                                     alt="img_card_product">
                                 <div class="card-body">
                                     <h5 class="card-title">id n° {{ $product->gamme_id }}</h5>
                                     <p class="card-text">{{ $product->desc }}</p>
-                                    <a href="{{ asset(route('info_product'))}}" class="btn btn-terracotta">En savoir +</a>
+                                    <a href="{{ asset(route('info_product')) }}" class="btn btn-terracotta">En savoir +</a>
                                 </div>
                             </div>
                         </div>
@@ -49,11 +49,17 @@
             var divsGamme = document.querySelectorAll('.show_ligne_gamme');
             divsGamme.forEach(function(divGamme) {
                 if (divGamme.id === 'gamme_' + gammeId) {
-                    divGamme.style.display = 'block';
+                    divGamme.style.display = 'flex';
+                    divGamme.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
                 } else {
                     divGamme.style.display = 'none';
                 }
             });
+
+
         }
     </script>
 @endsection

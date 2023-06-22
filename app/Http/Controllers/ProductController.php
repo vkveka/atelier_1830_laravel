@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gamme;
+use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class GammeController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,7 @@ class GammeController extends Controller
      */
     public function index()
     {
-        //EAGER LOADING
-        $gammes = Gamme::with('products')->get();
-        //renvoie une vue et injecte une variable dedans
-        return view('gammes/index', ['gammes' => $gammes]);
+        //
     }
 
     /**
@@ -37,20 +33,30 @@ class GammeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Gamme $gamme)
+    public function store(Request $request, Product $product)
     {
         $request->validate([
             'name' => 'required|max:40',
-            'image' => 'nullable|string',
+            'desc' => 'required',
+            'full_desc' => 'required',
+            'image' => 'required',
+            'price' => 'required',
+            'dispo' => 'required',
+            'gamme_id' => 'required',
         ]);
 
-        $gamme->create([
+        $product->create([
             'name' => $request->name,
             'image' => $request->image,
+            'desc' => $request->desc,
+            'full_desc' => $request->full_desc,
+            'price' => $request->price,
+            'dispo' => $request->dispo,
+            'gamme_id' => $request->gamme_id,
         ]);
 
 
-        return redirect()->route('admin')->with('message', 'Une gamme a été ajoutée');
+        return redirect()->route('admin')->with('message', 'Un produit a été ajoutée');
     }
 
     /**
@@ -82,25 +88,30 @@ class GammeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gamme $gamme)
+    public function update(Request $request, Product $product)
     {
         $request->validate([
             'name' => 'required|max:40',
-            'image' => 'nullable|string',
+            'desc' => 'required',
+            'full_desc' => 'required|max:1000',
+            'image' => 'required|max:50',
+            'price' => 'required',
+            'dispo' => 'required',
+            'gamme_id' => 'required',
         ]);
 
-        // //On modifie les infos de l'utilisateur
-        // $user->firstname = $request->input('firstname');
-        // $user->lastname = $request->input('lastname');
-        // $user->save();
-
-        $gamme->update([
+        $product->update([
             'name' => $request->name,
+            'desc' => $request->desc,
+            'full_desc' => $request->full_desc,
             'image' => $request->image,
+            'price' => $request->price,
+            'dispo' => $request->dispo,
+            'gamme_id' => $request->gamme_id,
         ]);
 
 
-        return redirect()->route('admin')->with('message', 'La gamme a bien été modifiée');
+        return redirect()->route('admin')->with('message', 'Modification du produit réussie');
     }
 
     /**
@@ -109,15 +120,9 @@ class GammeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gamme $gamme)
+    public function destroy(Product $product)
     {
-        $gamme->load('products');
-
-        foreach ($gamme->products as $product) {
-            $product->delete();
-        }
-        $gamme->delete();
-        
-        return redirect()->route('admin.index')->with('message', 'La gamme a bien été supprimée');
+        $product->delete();
+        return redirect()->route('admin')->with('message', 'L\'article a bien été supprimé');
     }
 }
